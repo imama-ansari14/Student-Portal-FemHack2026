@@ -31,8 +31,9 @@ const AdminDashboard = () => {
       customClass: {
         popup: "rounded-2xl border border-gray-700 shadow-2xl",
         confirmButton: "px-6 py-2 rounded-lg font-semibold",
-        cancelButton: "px-6 py-2 rounded-lg font-semibold border border-gray-600"
-      }
+        cancelButton:
+          "px-6 py-2 rounded-lg font-semibold border border-gray-600",
+      },
     });
 
     if (result.isConfirmed) {
@@ -48,7 +49,7 @@ const AdminDashboard = () => {
           timer: 1500,
           showConfirmButton: false,
         });
-        
+
         setTimeout(() => navigate("/login"), 1500);
       } else {
         Swal.fire({
@@ -69,7 +70,9 @@ const AdminDashboard = () => {
         <div>
           <div className="flex items-center gap-2 mb-8 text-blue-400">
             <House size={32} weight="fill" />
-            <h2 className="text-2xl font-bold text-white tracking-tight">Admin Panel</h2>
+            <h2 className="text-2xl font-bold text-white tracking-tight">
+              Admin Panel
+            </h2>
           </div>
 
           <nav className="flex flex-col gap-4">
@@ -77,21 +80,21 @@ const AdminDashboard = () => {
               className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-700 transition-all duration-200 group"
               to="/admin-dashboard/complaints"
             >
-              <ClipboardText size={22} className="group-hover:text-blue-400" /> 
+              <ClipboardText size={22} className="group-hover:text-blue-400" />
               <span className="font-medium">Complaints</span>
             </Link>
             <Link
               className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-700 transition-all duration-200 group"
               to="/admin-dashboard/lost-found"
             >
-              <Archive size={22} className="group-hover:text-blue-400" /> 
+              <Archive size={22} className="group-hover:text-blue-400" />
               <span className="font-medium">Lost & Found</span>
             </Link>
             <Link
               className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-700 transition-all duration-200 group"
               to="/admin-dashboard/volunteers"
             >
-              <HandsClapping size={22} className="group-hover:text-blue-400" /> 
+              <HandsClapping size={22} className="group-hover:text-blue-400" />
               <span className="font-medium">Volunteering</span>
             </Link>
           </nav>
@@ -101,7 +104,7 @@ const AdminDashboard = () => {
           onClick={handleLogout}
           className="flex items-center justify-center gap-3 p-3 rounded-xl bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 border border-red-500/20 shadow-lg shadow-red-500/5"
         >
-          <SignOut size={20} weight="bold" /> 
+          <SignOut size={20} weight="bold" />
           <span className="font-semibold">Sign Out</span>
         </button>
       </aside>
@@ -115,7 +118,8 @@ const AdminDashboard = () => {
           </h1>
           <p className="text-gray-400 mt-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            System online • {new Date().toLocaleDateString("en-US", {
+            System online •{" "}
+            {new Date().toLocaleDateString("en-US", {
               weekday: "long",
               month: "long",
               day: "numeric",

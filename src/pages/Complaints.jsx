@@ -74,7 +74,7 @@ const Complaints = () => {
 
   return (
     <>
-      <Navbar user={user} />
+
 
       <div className="min-h-screen bg-[#0f172a] px-6 py-16">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">

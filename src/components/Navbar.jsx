@@ -30,38 +30,49 @@ const StudentNavbar = ({ user }) => {
             <Link to="/student-portal" className="hover:text-indigo-400">
               Home
             </Link>
-            <Link to="/lost-found" className="hover:text-indigo-400">
+            <Link
+              to="/student-portal/lost-found"
+              className="hover:text-indigo-400"
+            >
               Lost & Found
             </Link>
-            <Link to="/Complaints" className="hover:text-indigo-400">
+            <Link
+              to="/student-portal/complaints"
+              className="hover:text-indigo-400"
+            >
               Complaints
             </Link>
-            <Link to="/volunteering" className="hover:text-indigo-400">
+            <Link
+              to="/student-portal/volunteering"
+              className="hover:text-indigo-400"
+            >
               Volunteering
             </Link>
           </div>
 
           {/* User Info */}
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              <img
-                src="https://i.pravatar.cc/40"
-                alt="profile"
-                className="w-10 h-10 rounded-full border border-white/20"
-              />
-              <span className="text-slate-300 text-sm max-w-[120px] truncate">
-                {user?.user_metadata?.full_name || "Student"}
-              </span>
-            </div>
+          {user && (
+            <div className="hidden md:flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://i.pravatar.cc/40"
+                  alt="profile"
+                  className="w-10 h-10 rounded-full border border-white/20"
+                />
+                <span className="text-slate-300 text-sm max-w-[120px] truncate">
+                  {user.user_metadata?.full_name || "Student"}
+                </span>
+              </div>
 
-            <button
-              onClick={handleLogout}
-              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-xl text-white font-semibold transition shadow-lg shadow-indigo-600/20"
-            >
-              <SignOut size={18} />
-              Logout
-            </button>
-          </div>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-xl text-white font-semibold transition shadow-lg shadow-indigo-600/20"
+              >
+                <SignOut size={18} />
+                Logout
+              </button>
+            </div>
+          )}
 
           {/* Mobile Toggle */}
           <button
@@ -79,22 +90,27 @@ const StudentNavbar = ({ user }) => {
           <Link onClick={() => setOpen(false)} to="/student-portal">
             Home
           </Link>
-          <Link onClick={() => setOpen(false)} to="/lost-found">
+          <Link onClick={() => setOpen(false)} to="/student-portal/lost-found">
             Lost & Found
           </Link>
-          <Link onClick={() => setOpen(false)} to="/complaints">
+          <Link onClick={() => setOpen(false)} to="/student-portal/complaints">
             Complaints
           </Link>
-          <Link onClick={() => setOpen(false)} to="/volunteering">
+          <Link
+            onClick={() => setOpen(false)}
+            to="/student-portal/volunteering"
+          >
             Volunteering
           </Link>
 
-          <button
-            onClick={handleLogout}
-            className="w-full mt-4 bg-indigo-600 hover:bg-indigo-500 py-3 rounded-xl text-white font-bold"
-          >
-            Logout
-          </button>
+          {user && (
+            <button
+              onClick={handleLogout}
+              className="w-full mt-4 bg-indigo-600 hover:bg-indigo-500 py-3 rounded-xl text-white font-bold"
+            >
+              Logout
+            </button>
+          )}
         </div>
       )}
     </nav>

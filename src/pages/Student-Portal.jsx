@@ -8,7 +8,6 @@ export default function StudentPortal() {
 
   return (
     <>
-      <Navbar user={user} />
       <Hero />
       <Footer />
     </>
