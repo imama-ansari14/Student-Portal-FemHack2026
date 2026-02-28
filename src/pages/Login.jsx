@@ -12,9 +12,7 @@ const Login = () => {
 
   // Hardcoded Admin Credentials
   const ADMIN_EMAIL = "admin@gmail.com";
-  const ADMIN_PASSWORD = "123456"; // strong password
-
-  // Premium SweetAlert Configuration
+  const ADMIN_PASSWORD = "123456";
   const Toast = Swal.mixin({
     customClass: {
       popup:
@@ -31,17 +29,17 @@ const Login = () => {
     setLoading(true);
 
     try {
-      // Admin check first
       if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-        Toast.fire({
+        await Toast.fire({
           icon: "success",
           title: "Welcome Admin",
           text: "Access granted as Admin",
           timer: 2000,
           showConfirmButton: false,
         });
+        setLoading(false); 
         navigate("/admin-dashboard");
-        return; // Stop further execution
+        return;
       }
 
       // Normal Supabase authentication for other users
